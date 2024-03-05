@@ -12,6 +12,12 @@
         Book::insertBook($_POST);
         break;
 
+      case 'update':
+        $id = $_POST['id'];
+        unset($_POST['id']);
+        Book::updateBook($_POST, $id);
+        break;
+
         case 'delete':
         Book::deleteBook($_POST, $_POST['id']);
         break;

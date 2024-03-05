@@ -32,7 +32,7 @@
 			}
     }
 
-    public function select($table, $fields) {
+    public function select($table, $fields, $filters) {
       $query = "SELECT ";
       
       if ($fields != null) {
@@ -42,6 +42,15 @@
       }
       
       $query .= " FROM $table";
+
+      if($filters != null){
+				$query .= " WHERE ";
+				foreach ($filters as $key => $value) {
+					$query .= "$key=:$key AND ";
+				}
+      
+        $query = substr($query, 0, -4);
+			}
       
       $pdo = parent::get_instance();
       $stmt = $pdo->prepare($query);
@@ -49,6 +58,16 @@
       if (!$stmt) {
         echo "\PDO::errorInfo():\n";
         print_r($stmt->errorInfo());
+      }
+
+      if ($filters != null) {
+        foreach ($filters as $key => $value) {
+					$filters[$key] = filter_var($value);
+				}
+
+        foreach ($filters as $key => $value) {
+					$stmt->bindValue(":$key", $value, PDO::PARAM_STR);
+				}
       }
 
       $stmt->execute();
@@ -63,6 +82,48 @@
       }
 
       return $data;
+    }
+
+    public static function update($table, $data, $filters) {
+      $query = "UPDATE $table SET ";
+
+      foreach ($data as $key => $value) {
+				$query .= "$key=:$key, ";
+			}
+
+      $query = substr($query, 0, -2)." WHERE ";
+
+			foreach ($filters as $key => $value) {
+				$query .= "$key=:$key AND ";
+			}
+      
+      $query = substr($query, 0, -4);
+
+      $pdo = parent::get_instance();
+      $stmt = $pdo->prepare($query);
+
+      if (!$stmt) {
+        echo "\PDO::errorInfo():\n";
+        print_r($stmt->errorInfo());
+      }
+
+      foreach ($data as $key => $value) {
+				$data[$key] = filter_var($value);
+			}
+
+      foreach ($data as $key => $value){
+				$stmt->bindValue(":$key", $value, PDO::PARAM_STR);
+			}
+
+      foreach ($filters as $key => $value){
+				$stmt->bindValue(":$key", $value, PDO::PARAM_STR);
+			}
+
+      if($stmt->execute()){
+				return true;
+			}else{
+				return false;
+			}
     }
 
     public static function delete($table, $filters) {

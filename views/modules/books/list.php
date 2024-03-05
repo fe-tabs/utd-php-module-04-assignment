@@ -60,7 +60,22 @@
                   </p>
                 </div>
 
-                <div class="d-flex justify-content-end">
+                <div class="d-flex gap-3 justify-content-end">
+                  <form action="?page=update-book&id=<?=$book['id']?>" method="POST">
+                    <input 
+                      id="id"
+                      name="id"
+                      type="hidden"
+                      value="<?=$book['id']?>"
+                    />
+
+                    <input 
+                      class="btn btn-primary fs-4" 
+                      type="submit" 
+                      value="Editar"
+                    />
+                  </form>
+
                   <form action="controllers/Book.php" method="POST">
                     <input
                       id="action"
@@ -77,7 +92,7 @@
                     />
 
                     <input 
-                      class="btn btn-danger" 
+                      class="btn btn-danger fs-4" 
                       type="submit" 
                       value="Excluir"
                     />

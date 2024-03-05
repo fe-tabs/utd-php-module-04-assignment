@@ -15,6 +15,11 @@
       case 'insert-book':
         include_once 'views/modules/books/insert.php';
         break;
+
+      case 'update-book':
+        $data = Book::listOneBook($_GET['id'])[0];
+        include_once 'views/modules/books/update.php';
+        break;
       
       default:
         break;
