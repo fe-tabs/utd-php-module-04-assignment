@@ -1,5 +1,5 @@
 <?php
-  include_once 'models/Connection.php';
+  include_once 'Connection.php';
 
   class Manager extends Connection {
 
@@ -20,6 +20,7 @@
       foreach ($data as $key => $value) {
 				$data[$key] = filter_var($value);
 			}
+
       foreach ($data as $key => $value){
 				$stmt->bindValue(":$key", $value, PDO::PARAM_STR);
 			}
@@ -62,6 +63,34 @@
       }
 
       return $data;
+    }
+
+    public static function delete($table, $filters) {
+      $query = "DELETE FROM $table WHERE ";
+      
+      foreach($filters as $key => $value) {
+        $query .= "$key = :$key AND ";
+      }
+
+      $query = substr($query, 0, -4);
+
+      $pdo = parent::get_instance();
+      $stmt = $pdo->prepare($query);
+
+      if (!$stmt) {
+        echo "\PDO::errorInfo():\n";
+        print_r($stmt->errorInfo());
+      }
+
+      foreach ($filters as $key => $value) {
+        $stmt->bindValue(":$key", $value[$key], PDO::PARAM_STR);
+      }
+
+      if($stmt->execute()){
+				return true;
+			}else{
+				return false;
+			}
     }
 
   }

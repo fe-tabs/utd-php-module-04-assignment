@@ -1,4 +1,5 @@
 <?php 
+
   include_once '../models/Connection.php';
   include_once '../models/Manager.php';
   include_once '../models/Book.php';
@@ -9,6 +10,10 @@
     switch ($_REQUEST['action']) {
       case 'insert':
         Book::insertBook($_POST);
+        break;
+
+        case 'delete':
+        Book::deleteBook($_POST, $_POST['id']);
         break;
       
       default:

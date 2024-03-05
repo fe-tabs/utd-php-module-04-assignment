@@ -41,22 +41,48 @@
                   alt="Capa do Livro '<?=$book['title']?>'">
               </div>
     
-              <div class="card-body col-sm-8">
-                <h5 class="card-title fw-bold fs-3">
-                  <?=$book['title']?>
-                </h5>
-                <h6 class="card-subtitle fs-4 fw-bold">
-                  <?=$book['author']?>
-                </h6>
-                <p class="card-text">
-                  <?php
-                    echo ($book['series_name'] != null) ? ('
-                      <small class="text-body-secondary fs-5 fw-bolder">
-                        Da série '.$book['series_name'].', Volume '.$book['series_volume'].'
-                      </small>
-                    ') : '';
-                  ?>
-                </p>
+              <div class="card-body d-flex flex-column justify-content-between col-sm-8">
+                <div>
+                  <h5 class="card-title fw-bold fs-3">
+                    <?=$book['title']?>
+                  </h5>
+                  <h6 class="card-subtitle fs-4 fw-bold">
+                    <?=$book['author']?>
+                  </h6>
+                  <p class="card-text">
+                    <?php
+                      echo ($book['series_name'] != null) ? ('
+                        <small class="text-body-secondary fs-5 fw-bolder">
+                          Da série '.$book['series_name'].', Volume '.$book['series_volume'].'
+                        </small>
+                      ') : '';
+                    ?>
+                  </p>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                  <form action="controllers/Book.php" method="POST">
+                    <input
+                      id="action"
+                      name="action"
+                      type="hidden"
+                      value="delete"
+                    />
+
+                    <input 
+                      id="id"
+                      name="id"
+                      type="hidden"
+                      value="<?=$book['id']?>"
+                    />
+
+                    <input 
+                      class="btn btn-danger" 
+                      type="submit" 
+                      value="Excluir"
+                    />
+                  </form>
+                </div>
               </div>
             </div>
           </div>
