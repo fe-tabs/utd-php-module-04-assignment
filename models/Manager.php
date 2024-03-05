@@ -1,4 +1,5 @@
 <?php
+  include_once 'models/Connection.php';
 
   class Manager extends Connection {
 

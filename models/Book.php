@@ -1,4 +1,5 @@
 <?php
+  include_once 'models/Manager.php';
 
   class Book extends Manager {
 
