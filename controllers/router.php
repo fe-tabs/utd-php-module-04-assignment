@@ -11,6 +11,10 @@
         $data = Book::listAllBooks();
         include_once 'views/modules/books/list.php';
         break;
+
+      case 'insert-book':
+        include_once 'views/modules/books/insert.php';
+        break;
       
       default:
         break;
