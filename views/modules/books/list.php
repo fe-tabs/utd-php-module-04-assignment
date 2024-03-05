@@ -34,14 +34,15 @@
         <?php foreach($data as $book): ?>
           <div class="card container my-3">
             <div class="row">
-              <div class="col-sm-4 text-center">
+              <div class="col-sm-4 col-md-5 text-center book-cover">
                 <img 
                   class="rounded my-3" 
                   src="<?=$book['cover_image']?>" 
-                  alt="Capa do Livro '<?=$book['title']?>'">
+                  alt="Capa do Livro '<?=$book['title']?>'"
+                >
               </div>
     
-              <div class="card-body d-flex flex-column justify-content-between col-sm-8">
+              <div class="card-body d-flex flex-column justify-content-between col-sm-8 col-md-7">
                 <div>
                   <h5 class="card-title fw-bold fs-3">
                     <?=$book['title']?>
@@ -60,7 +61,7 @@
                   </p>
                 </div>
 
-                <div class="d-flex gap-3 justify-content-end">
+                <div class="d-flex gap-3 justify-content-end mt-3">
                   <form action="?page=update-book&id=<?=$book['id']?>" method="POST">
                     <input 
                       id="id"
