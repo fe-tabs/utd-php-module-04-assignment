@@ -1,3 +1,17 @@
+/* PAGINATION */
+
+.hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* COVER IMAGE SIZE RESPONSIVITY */
+
 .book-cover img {
   height: 12rem;
   width: 9rem;
@@ -17,6 +31,8 @@
     width: auto;
   }
 }
+
+/* NAVBAR WIDTH RESPONSIVITY */
 
 @media (min-width: 992px) {
   .navbar-expand-lg .container-fluid{
