@@ -20,18 +20,29 @@
             Autenticação
           </a>
           <div class="dropdown-menu bg-primary px-3 py-2">
-            <a 
-              class="dropdown-item nav-link bg-primary" 
-              href="index.php?page=login"
-            >
-              Entrar
-            </a>
-            <a 
-              class="dropdown-item nav-link bg-primary" 
-              href="controllers/logout.php"
-            >
-              Sair 
-            </a>
+            <?php
+              echo $user_data ? ('
+                <a 
+                  class="dropdown-item nav-link bg-primary" 
+                  href="controllers/logout.php"
+                >
+                  Sair 
+                </a>
+              ') : ('
+                <a 
+                  class="dropdown-item nav-link bg-primary" 
+                  href="index.php?page=register"
+                >
+                  Registrar-se
+                </a>
+                <a 
+                  class="dropdown-item nav-link bg-primary" 
+                  href="index.php?page=login"
+                >
+                  Entrar
+                </a>
+              ');
+            ?>
           </div>
         </div>
       </div>

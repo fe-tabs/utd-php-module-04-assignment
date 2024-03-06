@@ -4,6 +4,10 @@
 
   class User extends Manager {
 
+    public static function insertUser($user) {
+      return (new Manager)->insert('users', $user);
+    }
+
     public static function listOneUser($email, $password) {
       return (new Manager)->select(
         'users', 

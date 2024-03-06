@@ -19,6 +19,10 @@
         include_once 'login.php';
         break;
 
+      case 'register':
+        include_once 'register.php';
+        break;
+
       case 'list-books':
         $data = Book::listAllBooks();
         include_once 'views/modules/books/list.php';
