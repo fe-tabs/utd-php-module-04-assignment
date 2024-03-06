@@ -15,6 +15,7 @@
       <div class="navbar-nav gap-3 text-white">
         <a class="nav-link" href="index.php?page=list-books">Início</a>
         <a class="nav-link" href="index.php?page=insert-book">Novo livro</a>
+        <a class="nav-link" href="index.php?page=insert-user">Novo usuário</a>
         <div class="dropdown">
           <a href="#" role="button" class="nav-link" data-bs-toggle="dropdown">
             Autenticação

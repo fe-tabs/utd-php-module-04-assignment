@@ -38,6 +38,10 @@
         include_once 'views/modules/books/insert.php';
         break;
 
+      case 'insert-user':
+        include_once 'views/modules/users/insert.php';
+        break;
+
       case 'update-book':
         $data = Book::listOneBook($_GET['id'])[0];
         include_once 'views/modules/books/update.php';
