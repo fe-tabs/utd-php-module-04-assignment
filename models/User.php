@@ -16,6 +16,10 @@
       );
     }
 
+    public static function deleteUser($id) {
+      return (new Manager)->delete('users', array('id' => $id));
+    }
+
     public static function listAllUsers() {
       return (new Manager)->select('users', ['id', 'name', 'email', 'type'], null);
     }

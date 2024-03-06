@@ -12,6 +12,10 @@
         $_POST['password'] = md5($_POST['password']);
         User::insertUser($_POST);
         break;
+
+        case 'delete':
+          User::deleteUser($_POST, $_POST['id']);
+          break;
       
       default:
         break;
