@@ -13,6 +13,12 @@
         User::insertUser($_POST);
         break;
 
+      case 'update':
+        $id = $_POST['id'];
+        unset($_POST['id']);
+        User::updateUser($_POST, $id);
+        break;
+
         case 'delete':
           User::deleteUser($_POST, $_POST['id']);
           break;

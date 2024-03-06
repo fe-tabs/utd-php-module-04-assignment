@@ -7,7 +7,7 @@
   $email = $_POST['email'];
   $password = md5($_POST['password']);
 
-  $data = User::listOneUser($email, $password);
+  $data = User::listUserByLogin($email, $password);
 
   if($data) {
     $user_data['name'] = $data[0]['name'];

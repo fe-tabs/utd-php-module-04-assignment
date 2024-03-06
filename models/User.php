@@ -8,12 +8,20 @@
       return (new Manager)->insert('users', $user);
     }
 
-    public static function listOneUser($email, $password) {
+    public static function listUserByLogin($email, $password) {
       return (new Manager)->select(
         'users', 
         ['name', 'email', 'type'], 
         array('email' => $email, 'password' => $password)
       );
+    }
+
+    public static function listOneUser($id) {
+      return (new Manager)->select('users', null, array('id' => $id));
+    }
+
+    public static function updateUser($user, $id) {
+      return (new Manager)->update('users', $user, array('id' => $id));
     }
 
     public static function deleteUser($id) {

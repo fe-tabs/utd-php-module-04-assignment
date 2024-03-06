@@ -46,6 +46,11 @@
         $data = Book::listOneBook($_GET['id'])[0];
         include_once 'views/modules/books/update.php';
         break;
+
+      case 'update-user':
+        $data = User::listOneUser($_GET['id'])[0];
+        include_once 'views/modules/users/update.php';
+        break;
       
       default:
         break;
