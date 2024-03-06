@@ -6,26 +6,7 @@
 
 ?>
 
-<header class="bg-primary p-2 sticky-top">
-  <nav class="nav navbar-expand-lg" data-bs-theme="dark">
-    <div class="container-fluid">
-      <button 
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbar-navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-
-    <div id="navbar-navigation" class="collapse navbar-collapse px-3 pt-1">
-      <div class="navbar-nav text-white">
-        <a class="nav-link" href="index.php">Início</a>
-      </div>
-    </div>
-  </nav>
-</header>
+<?php include_once 'views/components/header.php';?>
 
 <main class="container py-4 h-100">
   <section>
