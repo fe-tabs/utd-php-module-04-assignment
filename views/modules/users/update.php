@@ -4,7 +4,7 @@
   <form action="controllers/User.php" method="POST">
     <div class="mb-3">
       <label for="name" class="form-label">Nome</label>
-      <input type="name" class="form-control" id="name" name="name" value="<?=$data['id'];?>">
+      <input type="name" class="form-control" id="name" name="name" value="<?=$data['name'];?>">
     </div>
 
     <div class="mb-3">
