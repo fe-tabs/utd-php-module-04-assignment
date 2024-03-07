@@ -1,5 +1,3 @@
-<?php include_once 'views/components/header.php';?>
-
 <main class="container py-4">
   <form action="controllers/Loan.php" method="POST">
     <div class="mb-3">
@@ -34,5 +32,3 @@
     <button type="submit" class="btn btn-primary">Enviar</button>
   </form>
 </main>
-
-<?php include_once 'views/components/footer.php';?>

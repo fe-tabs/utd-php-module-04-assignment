@@ -1,5 +1,3 @@
-<?php include_once 'views/components/header.php';?>
-
 <?php
 
   $headers = ['ID', 'Nome', 'Email','Tipo', 'Ações'];
@@ -77,5 +75,3 @@
     </nav>
   </div>
 </div>
-
-<?php include_once 'views/components/footer.php';?>

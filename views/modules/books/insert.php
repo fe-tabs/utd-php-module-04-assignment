@@ -1,5 +1,3 @@
-<?php include_once 'views/components/header.php';?>
-
 <main class="container py-4 h-100">
   <form action="controllers/Book.php" method="POST">
     <div class="mb-3">
@@ -52,5 +50,3 @@
     <button type="submit" class="btn btn-primary">Adicionar livro</button>
   </form>
 </main>
-
-<?php include_once 'views/components/footer.php';?>

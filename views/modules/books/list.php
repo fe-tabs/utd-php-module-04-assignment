@@ -1,13 +1,3 @@
-<?php 
-
-  include_once 'models/Connection.php';
-  include_once 'models/Manager.php';
-  include_once 'models/Book.php';
-
-?>
-
-<?php include_once 'views/components/header.php';?>
-
 <main class="container py-4 h-100">
   <section>
     <div class="row row-cols-1">
@@ -103,6 +93,4 @@
     </div>
   </section>
 </main>
-
-<?php include_once 'views/components/footer.php';?>
   
