@@ -26,8 +26,65 @@
     <div id="navbar-navigation" class="collapse navbar-collapse order-lg-1 px-3 pt-1">
       <div class="navbar-nav gap-3 text-white">
         <a class="nav-link" href="index.php?page=list-books">Início</a>
-        <a class="nav-link" href="index.php?page=insert-book">Novo livro</a>
-        <a class="nav-link" href="index.php?page=insert-user">Novo usuário</a>
+
+        <?php 
+          echo $user_data && $user_data['type'] == 'Administrador' ? ('
+            <div class="dropdown">
+              <a href="#" role="button" class="nav-link" data-bs-toggle="dropdown">
+                Livros
+              </a>
+              <div class="dropdown-menu bg-primary px-3 py-2">
+                <a 
+                  class="dropdown-item nav-link bg-primary" 
+                  href="index.php?page=insert-book"
+                >
+                  Adicionar livro
+                </a>
+                <a 
+                  class="dropdown-item nav-link bg-primary" 
+                  href="index.php?page=list-books"
+                >
+                  Todos os livros
+                </a>
+              </div>
+            </div>
+    
+            <div class="dropdown">
+              <a href="#" role="button" class="nav-link" data-bs-toggle="dropdown">
+                Usuários
+              </a>
+              <div class="dropdown-menu bg-primary px-3 py-2">
+                <a 
+                  class="dropdown-item nav-link bg-primary" 
+                  href="index.php?page=insert-user"
+                >
+                  Adicionar usuário
+                </a>
+                <a 
+                  class="dropdown-item nav-link bg-primary" 
+                  href="index.php?page=list-users"
+                >
+                  Todos os usuários
+                </a>
+              </div>
+            </div>
+    
+            <div class="dropdown">
+              <a href="#" role="button" class="nav-link" data-bs-toggle="dropdown">
+                Empréstimos
+              </a>
+              <div class="dropdown-menu bg-primary px-3 py-2">
+                <a 
+                  class="dropdown-item nav-link bg-primary" 
+                  href="index.php?page=list-loans"
+                >
+                  Todos os empréstimos
+                </a>
+              </div>
+            </div>
+          ') : '';
+        ?>
+
         <div class="dropdown">
           <a href="#" role="button" class="nav-link" data-bs-toggle="dropdown">
             Autenticação
