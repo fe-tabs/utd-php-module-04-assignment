@@ -63,6 +63,12 @@
         $data = User::listOneUser($_GET['id'])[0];
         include_once 'views/modules/users/update.php';
         break;
+        
+        case 'update-loan':
+          $data = Loan::listOneLoan($_GET['id'])[0];
+          $users = User::listAllUsers();
+        include_once 'views/modules/loans/update.php';
+        break;
       
       default:
         break;

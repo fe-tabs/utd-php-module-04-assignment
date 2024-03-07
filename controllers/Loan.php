@@ -12,6 +12,12 @@
         Loan::insertLoan($_POST);
         break;
       
+      case 'update':
+        $id = $_POST['id'];
+        unset($_POST['id']);
+        Loan::updateLoan($_POST, $id);
+        break;
+      
       case 'delete':
         Loan::deleteLoan($_POST, $_POST['id']);
         break;
