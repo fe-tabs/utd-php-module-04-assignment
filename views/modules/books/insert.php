@@ -1,3 +1,11 @@
+<?php
+
+  if (!$user_data || $user_data['type'] != 'Administrador') {
+    header("location: index.php?page=list-books");
+  }
+
+?>
+
 <main class="container py-4 h-100">
   <form action="controllers/Book.php" method="POST">
     <div class="mb-3">

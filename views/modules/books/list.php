@@ -48,42 +48,46 @@
                     />
                   </form>
 
-                  <form action="?page=update-book&id=<?=$book['id']?>" method="POST">
-                    <input 
-                      id="id"
-                      name="id"
-                      type="hidden"
-                      value="<?=$book['id']?>"
-                    />
+                  <?php 
+                    echo $user_data && $user_data['type'] == 'Administrador' ? '
+                      <form action="?page=update-book&id='.$book['id'].'" method="POST">
+                        <input 
+                          id="id"
+                          name="id"
+                          type="hidden"
+                          value="'.$book['id'].'"
+                        />
 
-                    <input 
-                      class="btn btn-primary fs-4" 
-                      type="submit" 
-                      value="Editar"
-                    />
-                  </form>
+                        <input 
+                          class="btn btn-primary fs-4" 
+                          type="submit" 
+                          value="Editar"
+                        />
+                      </form>
 
-                  <form action="controllers/Book.php" method="POST">
-                    <input
-                      id="action"
-                      name="action"
-                      type="hidden"
-                      value="delete"
-                    />
+                      <form action="controllers/Book.php" method="POST">
+                        <input
+                          id="action"
+                          name="action"
+                          type="hidden"
+                          value="delete"
+                        />
 
-                    <input 
-                      id="id"
-                      name="id"
-                      type="hidden"
-                      value="<?=$book['id']?>"
-                    />
+                        <input 
+                          id="id"
+                          name="id"
+                          type="hidden"
+                          value="'.$book['id'].'"
+                        />
 
-                    <input 
-                      class="btn btn-danger fs-4" 
-                      type="submit" 
-                      value="Excluir"
-                    />
-                  </form>
+                        <input 
+                          class="btn btn-danger fs-4" 
+                          type="submit" 
+                          value="Excluir"
+                        />
+                      </form>
+                    ' : ''; 
+                  ?>
                 </div>
               </div>
             </div>

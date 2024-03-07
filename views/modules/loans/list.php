@@ -1,5 +1,9 @@
 <?php
 
+  if (!$user_data || $user_data['type'] != 'Administrador') {
+    header("location: index.php?page=list-books");
+  }
+
   $headers = ['ID', 'Usuário', 'Livro','Data de Empréstimo', 'Data de Devolução', 'Devolvido', 'Ações'];
   $rows = $data;
 
