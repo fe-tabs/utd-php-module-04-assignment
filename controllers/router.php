@@ -1,6 +1,7 @@
 <?php
   include_once 'models/Book.php';
   include_once 'models/User.php';
+  include_once 'models/Loan.php';
 
   function routes() {
     if (!isset($_GET['page'])) {
@@ -32,6 +33,11 @@
       case 'list-users':
         $data = User::listAllUsers();
         include_once 'views/modules/users/list.php';
+        break;
+
+      case 'list-loans':
+        $data = Loan::listAllLoans();
+        include_once 'views/modules/loans/list.php';
         break;
 
       case 'insert-book':
