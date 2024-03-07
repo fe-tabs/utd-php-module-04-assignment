@@ -4,7 +4,16 @@
     header("location: index.php?page=list-books");
   }
 
-  $headers = ['ID', 'Usuário', 'Livro','Data de Empréstimo', 'Data de Devolução', 'Devolvido', 'Ações'];
+  $headers = [
+    'ID',
+    'Usuário', 
+    'Livro', 
+    'Devolvido', 
+    'Data de Empréstimo', 
+    'Data de Devolução', 
+    'Ações'
+  ];
+  
   $rows = $data;
 
   for ($i=0; $i < count($rows); $i++) { 
@@ -61,11 +70,15 @@
         <?php endforeach; ?>
       </thead>
       <tbody>
-        <?php foreach ($rows as $key) : ?>
+        <?php foreach ($rows as $row) : ?>
           <tr>
-            <?php foreach ($key as $value) : ?>
-              <td><?= $value; ?></td>
-            <?php endforeach; ?>
+            <td><?= $row['id']; ?></td>
+            <td><?= $row['name']; ?></td>
+            <td><?= $row['title']; ?></td>
+            <td><?= $row['is_returned'] ? 'Sim' : 'Não'; ?></td>
+            <td><?= $row['loan_date']; ?></td>
+            <td><?= $row['return_date']; ?></td>
+            <td><?= $row['action']; ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

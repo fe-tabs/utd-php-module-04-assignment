@@ -13,7 +13,18 @@
     }
 
     public static function listAllLoans() {
-      return (new Manager)->select('loans', null, null);
+      return (new Manager)->selectJoin(
+        [
+          'loans' => ['id', 'loan_date', 'return_date', 'is_returned'], 
+          'users' => ['name'],
+          'books' => ['title'],
+        ], 
+        [
+          'loans.user_id' => 'users.id',
+          'loans.book_id' => 'books.id'
+        ], 
+        null
+      );
     }
 
     public static function updateLoan($loan, $id) {
