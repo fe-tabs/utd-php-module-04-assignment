@@ -7,17 +7,21 @@
     public static function insertUser($user) {
       return (new Manager)->insert('users', $user);
     }
+    
+    public static function listUser($id) {
+      return (new Manager)->select('users', null, array('id' => $id))[0];
+    }
 
     public static function listUserByLogin($email, $password) {
       return (new Manager)->select(
         'users', 
         ['name', 'email', 'type'], 
         array('email' => $email, 'password' => $password)
-      );
+      )[0];
     }
-
-    public static function listOneUser($id) {
-      return (new Manager)->select('users', null, array('id' => $id));
+    
+    public static function listAllUsers() {
+      return (new Manager)->select('users', ['id', 'name', 'email', 'type'], null);
     }
 
     public static function updateUser($user, $id) {
@@ -28,9 +32,6 @@
       return (new Manager)->delete('users', array('id' => $id));
     }
 
-    public static function listAllUsers() {
-      return (new Manager)->select('users', ['id', 'name', 'email', 'type'], null);
-    }
 
   }
 

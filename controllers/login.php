@@ -10,9 +10,9 @@
   $data = User::listUserByLogin($email, $password);
 
   if($data) {
-    $user_data['name'] = $data[0]['name'];
-    $user_data['email'] = $data[0]['email'];
-    $user_data['type'] = $data[0]['type'];
+    $user_data['name'] = $data['name'];
+    $user_data['email'] = $data['email'];
+    $user_data['type'] = $data['type'];
 
     session_start();
     $_SESSION[md5('user_data')] = $user_data;

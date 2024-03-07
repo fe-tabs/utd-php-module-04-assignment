@@ -7,8 +7,12 @@
       return (new Manager)->insert('books', $book);
     }
 
-    public static function listOneBook($id) {
-      return (new Manager)->select('books', null, array('id' => $id));
+    public static function listBook($id) {
+      return (new Manager)->select('books', null, array('id' => $id))[0];
+    }
+
+    public static function listAllBooks() {
+      return (new Manager)->select('books', null, null);
     }
 
     public static function updateBook($book, $id) {
@@ -17,10 +21,6 @@
 
     public static function deleteBook($id) {
       return (new Manager)->delete('books', array('id' => $id));
-    }
-
-    public static function listAllBooks() {
-      return (new Manager)->select('books', null, null);
     }
 
   }

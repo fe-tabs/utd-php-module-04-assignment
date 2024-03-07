@@ -49,23 +49,23 @@
         break;
 
       case 'insert-loan':
-        $book = Book::listOneBook($_GET['id'])[0];
+        $book = Book::listBook($_GET['id']);
         $users = User::listAllUsers();
         include_once 'views/modules/loans/insert.php';
         break;
 
       case 'update-book':
-        $data = Book::listOneBook($_GET['id'])[0];
+        $data = Book::listBook($_GET['id']);
         include_once 'views/modules/books/update.php';
         break;
 
       case 'update-user':
-        $data = User::listOneUser($_GET['id'])[0];
+        $data = User::listUser($_GET['id']);
         include_once 'views/modules/users/update.php';
         break;
         
         case 'update-loan':
-          $data = Loan::listOneLoan($_GET['id'])[0];
+          $data = Loan::listLoan($_GET['id']);
           $users = User::listAllUsers();
         include_once 'views/modules/loans/update.php';
         break;
