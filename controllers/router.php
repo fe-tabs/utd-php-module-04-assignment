@@ -10,8 +10,6 @@
 
     $user_data = array();
 
-    session_start();
-  
     if (isset($_SESSION[md5('user_data')])) {
       $user_data = $_SESSION[md5('user_data')];
     }

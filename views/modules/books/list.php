@@ -48,7 +48,7 @@
                     />
                   </form>
 
-                  <form action="?page=insert-loan&id=<?=$book['id']?>" method="POST">
+                  <form action="?page=update-book&id=<?=$book['id']?>" method="POST">
                     <input 
                       id="id"
                       name="id"

@@ -2,7 +2,6 @@
   <form action="controllers/Loan.php" method="POST">
     <div class="mb-3">
       <label for="user_id" class="form-label">Usuário</label>
-      <?php print_r($users);?>
       <select class="form-select" id="user_id" name="user_id">
         <?php foreach($users as $user): ?>
           <option value="<?=$user['id']?>"><?=$user['name']?></option>

@@ -1,3 +1,15 @@
+<?php 
+
+  $user_data = array();
+
+  session_start();
+  
+  if (isset($_SESSION[md5('user_data')])) {
+    $user_data = $_SESSION[md5('user_data')];
+  }
+
+?>
+
 <header class="bg-primary d-flex justify-content-between p-2 sticky-top fs-5">
   <nav class="nav navbar-expand-lg w-100" data-bs-theme="dark">
     <div class="container-fluid order-lg-2">
