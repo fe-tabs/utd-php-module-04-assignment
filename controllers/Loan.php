@@ -12,6 +12,10 @@
         Loan::insertLoan($_POST);
         break;
       
+      case 'delete':
+        Loan::deleteLoan($_POST, $_POST['id']);
+        break;
+      
       default:
         break;
     }
